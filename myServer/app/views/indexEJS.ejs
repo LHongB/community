@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%- title %></title>
+    <!--首先引入bootstrap-->
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <!--引入jquery-->
+    <script type="text/javascript" src="/plugins/jquery.min.js"></script>
+    <!--引入bootstrap插件-->
+    <script type="text/javascript" src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!--引入angularJS-->
+    <script type="text/javascript" src="/plugins/angular/angular.min.js"></script>
+    <!--首页的JS文件-->
+    <script type="text/javascript" src="/javascripts/index.js"></script>
+    <!--公共的JS文件-->
+    <script type="text/javascript" src="/javascripts/public.js"></script>
+    <!--angularJS核心启动文件-->
+    <script type="text/javascript" src="/javascripts/app.js"></script>
+    <!--控制器文件-->
+    <script type="text/javascript" src="/javascripts/controller.js"></script>
+</head>
+<body>
+<div>
+    <p>标签式的导航菜单</p>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/user">SVN</a></li>
+        <li><a href="#">iOS</a></li>
+        <li><a href="#">VB.Net</a></li>
+        <li><a href="#">Java</a></li>
+        <li><a href="#">PHP</a></li>
+    </ul>
+</div>
+
+<%- body %>
+
+<footer class="footer">
+
+</footer>
+</body>
+<script>
+    $(function(){
+        $("ul li").click(function(){
+            now=$(this).index();
+            tab();
+        });
+        function tab(){
+            $("ul li").eq(now).addClass('active').siblings().removeClass('active');
+            $("ul li").eq(now).addClass('cur').siblings().removeClass('cur');
+        }
+    })
+</script>
+</html>
